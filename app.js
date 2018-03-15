@@ -10,8 +10,12 @@ var config = {
 
   console.log("hello")
 
+<<<<<<< HEAD
   //BBC API
 var url = "https://newsapi.org/v2/top-headlines?" +
+=======
+  var url = "https://newsapi.org/v2/top-headlines?" +
+>>>>>>> 8aad4fa8475a74d18a654bc8acc583dc9defa44f
          "sources=bbc-news&" +
          "apiKey=85680e66dfa24f7bbb4bbc364c98c63a";
 var req = new Request(url);
@@ -20,6 +24,7 @@ fetch(req)
        console.log(response.json());
    })
 
+<<<<<<< HEAD
 
 //giphyAPI
 var input = $(this).attr("data-name");
@@ -58,3 +63,14 @@ $ curl -H "Accept: application/json" https://icanhazdadjoke.com/search
 
 //Meme API
 "http://version1.api.memegenerator.net//Generators_Search?q=" + input + "&pageIndex=0&pageSize=12&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e"
+=======
+  var input = "dogs";
+  var meme = "http://version1.api.memegenerator.net//Generators_Search?q=" + input + "&pageIndex=0&pageSize=12&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e"
+  
+  var req = new Request(meme);
+fetch(req)
+   .then(function(response) {
+       console.log(response.json());
+   })
+
+>>>>>>> 8aad4fa8475a74d18a654bc8acc583dc9defa44f
