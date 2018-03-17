@@ -19,7 +19,7 @@ body{
 }
 .jumbotron{
     background-color: #5CB7E1;
-    color:   rgb(253, 253, 253);
+    color:  #5C6E7A;
 }
 .card-img-bottom{
     width: auto; 
@@ -27,7 +27,7 @@ body{
 
 .card-title{
     text-align: center;
-    color: rgb(100, 100, 100); 
+    color: #8D96B7;
     
 }
 
