@@ -5,3 +5,8 @@ body{
 .card-img-bottom{
     width: auto; 
 }
+
+.card-title{
+    text-align: center;
+    
+}
