@@ -1,3 +1,16 @@
+var dadQueryURL = "https://icanhazdadjoke.com/search";
+var input;
+// Dad joke api ajax request
+$.ajax({
+  url: dadQueryURL,
+  method: "get", //send it through get method
+  data: { 
+    page: 1, 
+    limit: 20,
+    term: input
+  },
+});
+
 var config = {
     apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
     authDomain: "enlighten-up-dc253.firebaseapp.com",
@@ -12,7 +25,6 @@ var config = {
 
   //BBC API
 var url = "https://newsapi.org/v2/top-headlines?" +
-  var url = "https://newsapi.org/v2/top-headlines?" +
          "sources=bbc-news&" +
          "apiKey=85680e66dfa24f7bbb4bbc364c98c63a";
 var req = new Request(url);
@@ -59,6 +71,7 @@ $ curl -H "Accept: application/json" https://icanhazdadjoke.com/search
 
 //Meme API
 "http://version1.api.memegenerator.net//Generators_Search?q=" + input + "&pageIndex=0&pageSize=12&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e"
+<<<<<<< HEAD
   var input = "dogs";
   var meme = "http://version1.api.memegenerator.net//Generators_Search?q=" + input + "&pageIndex=0&pageSize=12&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e"
   
@@ -68,3 +81,5 @@ fetch(req)
        console.log(response.json());
    })
 
+=======
+>>>>>>> 285e3cbd1e779d71c02b12c746019b46ccaf864e
