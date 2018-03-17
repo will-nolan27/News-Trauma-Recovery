@@ -23,16 +23,17 @@
         <div class="col-lr-12">
             <div id="tableContainer" class="container">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Current NEWS</h3>
+                    <div class="panel-heading panel-heading-custom">
+                        <h3 class="panel-title">Request</h3>
                     </div>
                     <div class="panel-body">
                         <form>
                             <div class="form-group">
-                                <label for="Name">Search Me!</label>
+                                <label for="Name" ></label>
                                 <input type="text" class="form-control" id="trainName" placeholder="Search for a Topic">
                                 <br>
-                                <button type="button" id="update" class="btn btn-info">Submit</button>
+                                <button type="button" id="update" class="btn btn-info">I Know What I Want</button>
+                                <button type="button" id="random" class="btn btn-info">Surprise Me</button>
                             </div>
                         </form>
                     </div>
@@ -44,8 +45,8 @@
         <div class="col-lr-12">
             <div id="tableContainer" class="container">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">News!</h3>
+                    <div class="panel-heading panel-heading-custom">
+                        <h3 class="panel-title">Reality</h3>
                     </div>
                     <a class="panel-body" id="newsDrop"></a>
                 </div>
@@ -56,8 +57,8 @@
         <div class="col-lr-12">
             <div id="tableContainer" class="container">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Humor!</h3>
+                    <div class="panel-heading panel-heading-custom">
+                        <h3 class="panel-title">Relief</h3>
                     </div>
                     <div class="panel-body">
                         <div class="container">
@@ -66,9 +67,7 @@
                                     <div class="col-lg-4">
                                         <div class="card" style="width: 26rem;">
                                             <div class="card-body">
-                                                <p class="card-title">
-                                                    <b>MEMES</b>
-                                                </p>
+                                                <p class="card-title"><b>MEMES</b></p>
                                                 <img class="card-img-bottom" id="memes" src="https://camo.githubusercontent.com/b8b6fb20143f25818214397a4f864f3b74f1602c/68747470733a2f2f6d656d6567656e2e6c696e6b2f62757a7a2f6d656d65732f6d656d65735f657665727977686572652e6a70673f77617465726d61726b3d6e6f6e65"
                                                     alt="Card image cap" style="width: 26rem;">
                                             </div>
@@ -79,28 +78,25 @@
                                     <div class="col-lg-4">
                                         <div class="card" style="width: 26rem;">
                                             <div class="card-body">
-                                                <p class="card-title">
-                                                    <b>DAD JOKES</b>
-                                                </p>
+                                                <p class="card-title"><b>DAD JOKES</b></p>
                                                 <img class="card-img-bottom" id="dadjoke" src="https://uploads-cdn.thgblogs.com/wp-content/uploads/sites/463/2015/08/26035300/01-dunphy.jpg"
                                                     alt="Card image cap" style="width: 26rem;">
                                             </div>
                                         </div>
                                     </div>
-                                </ul>
-                                <ul>
-                                    <div class="col-lg-4">
-                                        <div class="card" style="width: 26rem;">
-                                            <div class="card-body">
-                                                <p class="card-title">
-                                                    <b>GIFS</b>
-                                                </p>
-                                                <img class="card-img-bottom" id="gifs" src="https://i.imgur.com/BIT4TTM.gif" alt="Card image cap" style="width: 26rem;">
-                                            </div>
+                            </ul>
+                            <ul>
+                                <div class="col-lg-4">
+                                    <div class="card" style="width: 26rem;">
+                                        <div class="card-body">
+                                            <p class="card-title"><b>GIFS</b></p>
+                                            <img class="card-img-bottom" id="gifs" src="https://i.imgur.com/BIT4TTM.gif" alt="Card image cap" style="width: 26rem;">
                                         </div>
+
                                     </div>
-                                </ul>
-                            </div>
+                                </div>
+                            </ul>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -108,6 +104,19 @@
         </div>
     </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="app.js" charset="utf-8"></script>
+  
+    <div class="footer">
+            
+             <div class="imageholder">
+            <img class="zenImage" src="zenbud.png" alt="Zen Bud">
+                    </div>
+
+                    <div class="copy" id="names">&copy; Ezdehar Jaber, Will Nolan, Nicole Penmer, Kerrick Woyshner</div>
+        </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
 </html>
