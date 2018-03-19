@@ -1,16 +1,4 @@
-var dadQueryURL = "https://icanhazdadjoke.com/search";
-var input;
-// Dad joke api ajax request
-$.ajax({
-  url: dadQueryURL,
-  method: "get", //send it through get method
-  data: { 
-    page: 1, 
-    limit: 20,
-    term: input
-  },
-});
-
+// Initialize firebase
 var config = {
     apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
     authDomain: "enlighten-up-dc253.firebaseapp.com",
@@ -20,54 +8,118 @@ var config = {
     messagingSenderId: "979543628414"
   };
   firebase.initializeApp(config);
-
-  console.log("hello")
-
-  //BBC API
-var url = "https://newsapi.org/v2/top-headlines?" +
-         "sources=bbc-news&" +
-         "apiKey=85680e66dfa24f7bbb4bbc364c98c63a";
-var req = new Request(url);
-fetch(req)
-   .then(function(response) {
-       console.log(response.json());
-   })
-
-
-//giphyAPI
-var input = $(this).attr("data-name");
-        
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-            input + "&api_key=Vu9MUre8MbTWoeTRiuH7BX2FzyYwaLeO";
-
-//Dad Joke API
-$ curl -H "Accept: application/json" https://icanhazdadjoke.com/search
-{
- "current_page": 1,
- "limit": 20,
- "next_page": 2,
- "previous_page": 1,
- "results": [
-   {
-     "id": "M7wPC5wPKBd",
-     "joke": "Did you hear the one about the guy with the broken hearing aid? Neither did he."
-   },
-   {
-     "id": "MRZ0LJtHQCd",
-     "joke": "What do you call a fly without wings? A walk."
-   },
-   ...
-   {
-     "id": "usrcaMuszd",
-     "joke": "What's the worst thing about ancient history class? The teachers tend to Babylon."
-   }
- ],
- "search_term": "",
- "status": 200,
- "total_jokes": 307,
- "total_pages": 15
+//---------------------------------------------------------------------------------------------------------------------
+// BBC API
+// Example URL searching for everything on bitcoin:
+function buildBBCurl(searchTerm) {
+  var queryURL = "https://newsapi.org/v2/top-headlines?sources=bbc-newsq=" + searchTerm;
+  var BBCqueryURL = queryURL + "&apiKey=85680e66dfa24f7bbb4bbc364c98c63a";
+}
+//---------------------------------------------------------------------------------------------------------------------
+// Random News API
+// Example URL searching for everything on bitcoin: https://newsapi.org/v2/everything?q=bitcoin&apiKey=85680e66dfa24f7bbb4bbc364c98c63a
+function buildRANDOMnewsURL(searchTerm) {
+  var queryURL = "https://newsapi.org/v2/top-headlines?q=" + searchTerm;
+  var RANDOMnewsQUERYurl = queryURL + "&apiKey=85680e66dfa24f7bbb4bbc364c98c63a";
+}
+//---------------------------------------------------------------------------------------------------------------------
+// GIF API
+// Example URL searching: https://api.giphy.com/v1/gifs/search?api_key=I1MEwlWrG35JGlUcGlKhGKWv5Gl5NmXV&q=&limit=1&offset=0&rating=PG-13&lang=en
+function buildGIFurl(searchTerm) {
+  var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=I1MEwlWrG35JGlUcGlKhGKWv5Gl5NmXV&q=" + searchTerm;
+  var GIFqueryURL = queryURL + "&limit=1";
+  }
+//---------------------------------------------------------------------------------------------------------------------
+// Random GIF API
+// Example URL searching: https://api.giphy.com/v1/gifs/random?api_key=I1MEwlWrG35JGlUcGlKhGKWv5Gl5NmXV&tag=&rating=G
+function buildRANDOMgifURL(searchTerm) {
+  var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=I1MEwlWrG35JGlUcGlKhGKWv5Gl5NmXV&tag=" + searchTerm;
+  var RANDOMgirlQUERYurl = queryURL;
+  }
+//---------------------------------------------------------------------------------------------------------------------
+// Meme API
+function buildMEMEurl(searchTerm) {
+  var queryURL = "http://version1.api.memegenerator.net//Generators_Search?q=" + searchTerm;
+  var MEMEqueryURL = queryURL + "&pageIndex=0&pageSize=12&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e";
+}
+//---------------------------------------------------------------------------------------------------------------------
+// Dad Joke API *framework*
+function buildDADurl(searchTerm) {
+  var queryURL = "" + searchTerm;
+  var MEMEqueryURL = queryURL + "&apiKey=";
 }
 
+// Dad Joke API
+//var dadQueryURL = "https://icanhazdadjoke.com/search";
+// Dad joke api ajax request
+//$.ajax({
+  //url: dadQueryURL,
+  //method: "GET",
+  //data: { 
+    //page: 1, 
+    //limit: 20,
+    //term: input
+  //},
+//});
+//---------------------------------------------------------------------------------------------------------------------
+// function to drop BBC article upon user's input submission
+function generateBBC() {
+  var searchTerm = $(".form-control").val().trim();
+  var url = buildBBCurl(searchTerm);
+  console.log(searchTerm);
+  $.ajax({
+    url: url,
+    method: "GET"
+  }).then(function(response) {
+    $("#newsDrop").append(response.articles[0].url).attr("href", response.articles[0].url);
+  });
+}
 
-//Meme API
-"http://version1.api.memegenerator.net//Generators_Search?q=" + input + "&pageIndex=0&pageSize=12&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e"
+$("#update").on("click", generateBBC);
+//---------------------------------------------------------------------------------------------------------------------
+// function to drop random article upon user's input submission
+function generateRANDOM() {
+  var searchTerm = $(".form-control").val().trim();
+  var url = buildRANDOMnewsURL(searchTerm);
+  console.log(searchTerm);
+  $.ajax({
+    url: url,
+    method: "GET"
+  }).then(function(response) {
+    $("#newsDrop").append(response.articles[0].url).attr("href", response.articles[0].url);
+  });
+}
+
+$("#random").on("click", generateRANDOM);
+
+//---------------------------------------------------------------------------------------------------------------------
+// function to drop GIFs upon user's input submission
+function generateGIF() {
+  var searchTerm = $(".form-control").val().trim();
+  var url = buildRANDOMgifURL(searchTerm);
+  console.log(searchTerm);
+  $.ajax({
+    url: url,
+    method: "GET"
+  }).then(function(response) {
+    $("#gifs").append(response).attr("href", response);
+  });
+}
+
+$("button").on("click", generateGIF);
+//---------------------------------------------------------------------------------------------------------------------
+// function to drop Memes upon user's input submission
+function generateMEME() {
+  var searchTerm = $(".form-control").val().trim();
+  var url = buildMEMEurl(searchTerm);
+  console.log(searchTerm);
+  $.ajax({
+    url: url,
+    method: "GET"
+  }).then(function(response) {
+    $("#memes").append(response).attr("href", response);
+  });
+}
+
+$("button").on("click", generateMEME);
+//---------------------------------------------------------------------------------------------------------------------
