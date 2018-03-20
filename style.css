@@ -25,10 +25,13 @@ body{
     width: auto; 
 }
 
+#gif-display{
+ width: 26rem; 
+    text-align: center;
+}
 .card-title{
     text-align: center;
     color: #8D96B7;
-    
 }
 
 .panel-default > .panel-heading-custom {
