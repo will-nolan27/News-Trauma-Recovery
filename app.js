@@ -38,12 +38,17 @@ function searchGiphy() {
 
 
 searchGiphy(); {
-apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
-    authDomain; "enlighten-up-dc253.firebaseapp.com",
-    databaseURL; "https://enlighten-up-dc253.firebaseio.com",
-    projectId; "enlighten-up-dc253",
-    storageBucket; "",
-    messagingSenderId; "979543628414";
+    apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
+    authDomain;
+    "enlighten-up-dc253.firebaseapp.com",
+    databaseURL;
+    "https://enlighten-up-dc253.firebaseio.com",
+    projectId;
+    "enlighten-up-dc253",
+    storageBucket;
+    "",
+    messagingSenderId;
+    "979543628414";
 };
 firebase.initializeApp(config);
 var searchTerm = []
@@ -249,8 +254,6 @@ function generateBBC() {
             searchMeme();
         }
     });
-
-
     //displaying text for dad joke 
     //displaying .empty 
     //$("#employee-name-input").val("");
@@ -355,3 +358,10 @@ $("#update").on("click", function (event) {
     }
 });
 //>>>>>>> cd8c296955022a09f51c4d13611fe54a01d246ac
+//function to clear search terms 
+$("#button").click(function() {
+    $("p").empty();
+    console.log(empty)
+});
+
+
