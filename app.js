@@ -18,7 +18,7 @@ function searchGiphy() {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         var results = response.data;
         console.log(results);
         $("#gif-display").text("");
@@ -37,13 +37,13 @@ function searchGiphy() {
 }
 
 
-searchGiphy();
+searchGiphy(); {
 apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
-    authDomain: "enlighten-up-dc253.firebaseapp.com",
-    databaseURL: "https://enlighten-up-dc253.firebaseio.com",
-    projectId: "enlighten-up-dc253",
-    storageBucket: "",
-    messagingSenderId: "979543628414"
+    authDomain; "enlighten-up-dc253.firebaseapp.com",
+    databaseURL; "https://enlighten-up-dc253.firebaseio.com",
+    projectId; "enlighten-up-dc253",
+    storageBucket; "",
+    messagingSenderId; "979543628414";
 };
 firebase.initializeApp(config);
 var searchTerm = []
@@ -53,7 +53,7 @@ function searchGiphy() {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         var results = response.data;
         console.log(results);
         $("#gif-display").text("");
@@ -103,7 +103,7 @@ function searchMeme() {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         var results = response;
         console.log(results);
         $("#gif-display").text("");
@@ -148,7 +148,7 @@ function generateBBC() {
     $.ajax({
         url: url,
         method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
         $("#newsDrop").append(response.articles[0].url).attr("href", response.articles[0].url);
     });
     //=======
@@ -170,7 +170,7 @@ function generateBBC() {
         $.ajax({
             url: queryURL,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response);
             var memeImg = (response.result[0].instanceImageUrl);
             console.log(memeImg);
@@ -198,7 +198,7 @@ function generateBBC() {
         $.ajax({
             url: url,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             $("#newsDrop").append(response.articles[0].url).attr("href", response.articles[0].url);
         });
     }
@@ -214,7 +214,7 @@ function generateBBC() {
         $.ajax({
             url: url,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             $("#gifs").append(response).attr("href", response);
         });
     }
@@ -229,14 +229,14 @@ function generateBBC() {
         $.ajax({
             url: url,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             $("#memes").append(response).attr("href", response);
         });
     }
     //
     $("button").on("click", generateMEME);
     //-
-    $("#update").on("click", function(event) {
+    $("#update").on("click", function (event) {
         event.preventDefault();
         var gif = $("#trainName").val().trim();
         if (gif == "") {
@@ -257,7 +257,7 @@ function generateBBC() {
     $("#role-input").val("");
     $("#start-input").val("");
     $("#rate-input").val("");
-});
+};
 //=======
 function generateDAD() {
     var searchTerm = $(".form-control").val().trim();
@@ -265,7 +265,9 @@ function generateDAD() {
     console.log(searchTerm);
     $.ajax({
         url: url,
-        data: { "term": searchTerm },
+        data: {
+            "term": searchTerm
+        },
         headers: {
             'Accept': 'application/json'
         },
@@ -273,7 +275,7 @@ function generateDAD() {
 
     }).then((data) => {
         console.log(data.results)
-        data.results.forEach(function(results) {
+        data.results.forEach(function (results) {
             console.log(results.joke);
         });
         // console.log("data")
@@ -340,7 +342,7 @@ $("#update").on("click", generateDAD);
 //
 //$("button").on("click", generateMEME);
 //-
-$("#update").on("click", function(event) {
+$("#update").on("click", function (event) {
     event.preventDefault();
     var gif = $("#trainName").val().trim();
     if (gif == "") {
