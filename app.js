@@ -1,4 +1,5 @@
 //Initialize firebase
+$(document).ready(function() {
 var config = {
     apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
     authDomain: "enlighten-up-dc253.firebaseapp.com",
@@ -9,7 +10,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var searchTerm = []
+var searchTerm = 
 
 function searchGiphy() {
 
@@ -358,9 +359,3 @@ $("#update").on("click", function (event) {
     }
 });
 //>>>>>>> cd8c296955022a09f51c4d13611fe54a01d246ac
-//function to clear search terms 
-$("#button").click(function() {
-    $("p").empty();
-    console.log(empty)
-});
-
