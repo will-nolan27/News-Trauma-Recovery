@@ -1,16 +1,53 @@
-//Initialize firebase
-$(document).ready(function() {
-var config = {
+
+  // Initialize Firebase
+  var config = {
     apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
     authDomain: "enlighten-up-dc253.firebaseapp.com",
     databaseURL: "https://enlighten-up-dc253.firebaseio.com",
     projectId: "enlighten-up-dc253",
-    storageBucket: "",
+    storageBucket: "enlighten-up-dc253.appspot.com",
     messagingSenderId: "979543628414"
-};
-firebase.initializeApp(config);
+  };
+  firebase.initializeApp(config);
 
-var searchTerm = 
+    var firebase = firebase.database(); 
+    var searchTerm = []
+    var fireBaseArray = ["dog", "cat", "milk", "apples", "monkey", "duck", "deli", "doctor", "diapers", "facebook"]
+    var randNum = []
+
+$("#search-term-input").on("click", function(event) {
+    // someone has submitted info via the form in the html
+    // here, need to update the database
+event.preventDlt();
+
+    searchCount++;
+    
+    //grabbing user input 
+    var searchTerm = $("#search-term-input").val().trim();
+    //console.log("im running")
+
+    //creates local "temporary" object for holding train data
+    var newSearchTerm = {
+        term: searchTerm,
+    }
+
+    //Uploads search data to the database
+    database.ref().push(newSearchTerm); 
+        searchTerm: searchTerm,
+        
+    console.log(newSearchTerm.term);
+
+    //clears all of the text-boxes
+    $("#search-term-input").val("");
+    
+    return false;
+
+    });
+
+//
+//End of firebase 
+
+
 
 function searchGiphy() {
 
@@ -37,20 +74,6 @@ function searchGiphy() {
     });
 }
 
-
-searchGiphy(); {
-    apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
-    authDomain;
-    "enlighten-up-dc253.firebaseapp.com",
-    databaseURL;
-    "https://enlighten-up-dc253.firebaseio.com",
-    projectId;
-    "enlighten-up-dc253",
-    storageBucket;
-    "",
-    messagingSenderId;
-    "979543628414";
-};
 firebase.initializeApp(config);
 var searchTerm = []
 
@@ -61,7 +84,7 @@ function searchGiphy() {
         method: "GET"
     }).then(function (response) {
         var results = response.data;
-        console.log(results);
+        //console.log(results)
         $("#gif-display").text("");
         for (var i = 0; i < results.length; i++) {
             var gifDiv = $("<div class='item'>");
@@ -358,4 +381,5 @@ $("#update").on("click", function (event) {
         searchMeme();
     }
 });
-//>>>>>>> cd8c296955022a09f51c4d13611fe54a01d246ac
+
+
