@@ -1,6 +1,7 @@
 html {
     height: 100%;
     box-sizing: border-box;
+    
   }
   
   *,
@@ -13,7 +14,9 @@ body{
     position: relative;
     margin: 0;
     background-color: rgb(253, 253, 253);
-  
+    font-family: 'RawlineLight'; 
+    font-weight: bold; 
+    font-style: bold; 
     background-repeat: none;
     min-height: 100%;
 }
@@ -25,17 +28,32 @@ body{
     width: auto; 
 }
 
+#gif-display{
+ width: 26rem; 
+    text-align: center;
+    padding-left: 0;
+}
 .card-title{
     text-align: center;
     color: #8D96B7;
-    
 }
 
+.new{
+    padding: 20px;
+    margin-left: 20px;
+
+}
+
+#dadjoke{
+padding: 20px;
+}
 .panel-default > .panel-heading-custom {
     background: #5CB7E1;  
     color: #fff;
 }
-
+#funny{
+    padding: 30px;
+}
 .footer {
      position: relative;
     right: 0;
@@ -58,3 +76,5 @@ body{
         color: rgb(253, 253, 253);
         padding: 5px;
     }
+
+
