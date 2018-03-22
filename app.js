@@ -1,4 +1,5 @@
-// Initialize firebase
+//Initialize firebase
+//$(document).ready(function() {
 var config = {
   apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
   authDomain: "enlighten-up-dc253.firebaseapp.com",
@@ -76,7 +77,7 @@ function generateCNN() {
     method: "GET"
   }).then(function(response) {
     console.log(response);
-      $("#newsDrop").append(response.response.results[0].webUrl);
+      $("#newsDrop").text(response.response.results[0].webUrl);
       $("#newsDrop").on("click", function() {
         $("#newsDrop").attr("href", response.response.results[0].webUrl);
         window.open(response.response.results[0].webUrl, '');
@@ -128,7 +129,6 @@ function generateCNN() {
 //    $("#newsDrop").append(response.articles[0].url).attr("href", response.articles[0].url);
 //  });
 //}
-
 //$("#update").on("click", generateBBC);
 //---------------------------------------------------------------------------------------------------------------------
 // function to drop random article upon user's input submission
@@ -176,5 +176,6 @@ $("#update").on("click", function (event) {
     searchMeme();
     searchDad();
     generateCNN();
-  }
+ }
 });
+
