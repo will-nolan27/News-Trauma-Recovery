@@ -1,57 +1,3 @@
-<<<<<<< HEAD
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAA340TsjEt9xMesMiovSSKh2GaWaynRHU",
-    authDomain: "enlighten-up-dc253.firebaseapp.com",
-    databaseURL: "https://enlighten-up-dc253.firebaseio.com",
-    projectId: "enlighten-up-dc253",
-    storageBucket: "enlighten-up-dc253.appspot.com",
-    messagingSenderId: "979543628414"
-  };
-  firebase.initializeApp(config);
-
-    var firebase = firebase.database(); 
-    var searchTerm = []
-    var fireBaseArray = ["dog", "cat", "milk", "apples", "monkey", "duck", "deli", "doctor", "diapers", "facebook"]
-    var randNum = []
-
-$("#search-term-input").on("click", function(event) {
-    // someone has submitted info via the form in the html
-    // here, need to update the database
-event.preventDlt();
-
-    searchCount++;
-    
-    //grabbing user input 
-    var searchTerm = $("#search-term-input").val().trim();
-    //console.log("im running")
-
-    //creates local "temporary" object for holding train data
-    var newSearchTerm = {
-        term: searchTerm,
-    }
-
-    //Uploads search data to the database
-    database.ref().push(newSearchTerm); 
-        searchTerm: searchTerm,
-        
-    console.log(newSearchTerm.term);
-
-    //clears all of the text-boxes
-    $("#search-term-input").val("");
-    
-    return false;
-
-    });
-
-//
-//End of firebase 
-
-
-
-function searchGiphy() {
-=======
 //Initialize firebase
 //$(document).ready(function() {
 var config = {
@@ -67,7 +13,6 @@ firebase.initializeApp(config);
 var searchTerm = []
 var fireBaseArray = ["dog", "cat", "rainbow", "apples", "color", "duck", "doctor", "baseball", "basketball", "music", "garden", "bug", "facebook", "space", "school", "kitten", "windows", "tech", "baby", "pun", "life"];
 var randNum = []
->>>>>>> 454ba7077e0f8d7c1d7895e89ef0a58cd213d883
 
 
 
@@ -119,29 +64,6 @@ function searchDad() {
   });  
 }
 
-<<<<<<< HEAD
-firebase.initializeApp(config);
-var searchTerm = []
-
-function searchGiphy() {
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dWrzYW0BDnzwozrf1PSoC64gqeYLPSby&limit=1";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        var results = response.data;
-        //console.log(results)
-        $("#gif-display").text("");
-        for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div class='item'>");
-            var personImage = $("<img>");
-            personImage.attr("src", results[i].images.fixed_height.url);
-            gifDiv.append(personImage);
-            $("#gif-display").prepend(gifDiv);
-        }
-    });
-}
-=======
  //Searchable Guardian API
 function buildCNNurl(searchTerm) {
   var CNNqueryURL = "https://content.guardianapis.com/search?q=" + searchTerm + "&api-key=049cc8da-ac2b-47db-985c-0fd76b832d2f";
@@ -173,7 +95,6 @@ function generateCNN() {
 //},
 //
 
->>>>>>> 454ba7077e0f8d7c1d7895e89ef0a58cd213d883
 //---------------------------------------------------------------------------------------------------------------------
 // BBC API
 // Example URL searching for everything on bitcoin:
@@ -258,7 +179,3 @@ $("#update").on("click", function (event) {
  }
 });
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 454ba7077e0f8d7c1d7895e89ef0a58cd213d883
