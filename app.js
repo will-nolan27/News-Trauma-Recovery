@@ -70,7 +70,7 @@ function buildCNNurl(searchTerm) {
   return CNNqueryURL;
 }
 function generateCNN() {
-  var searchTerm = $("#trainName").val().trim();
+// var searchTerm = $("#trainName").val().trim();
  var url = buildCNNurl(searchTerm);
   $.ajax({
     url: url,
@@ -153,8 +153,8 @@ function myFunction() {
   searchGiphy();
   searchMeme();
   searchDad();
-  searchTerm =[]
   generateCNN();
+  searchTerm =[]
 };
 
 $("#random").on("click", myFunction)
