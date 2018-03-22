@@ -11,7 +11,7 @@ var config = {
 firebase.initializeApp(config);
 
 var searchTerm = []
-var fireBaseArray = ["dog", "cat", "milk", "apples", "monkey", "duck", "deli", "doctor", "diapers", "facebook"]
+var fireBaseArray = ["dog", "cat", "rainbow", "apples", "color", "duck", "doctor", "baseball", "basketball", "music", "garden", "bug", "facebook", "space", "school", "kitten", "windows", "tech", "baby", "pun", "life"];
 var randNum = []
 
 
