@@ -115,7 +115,7 @@ $("#update").on("click", function (event) {
     alert("nothing");
   } else {
     searchTerm = gif;
-    fireBaseArray.push(gif);
+    fireBaseArray.push(searchTerm);
     console.log(fireBaseArray);
     console.log(searchTerm);
     $("#trainName").val("");
