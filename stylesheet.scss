@@ -1,3 +1,11 @@
+
+$primary-color:  #5CB7E1;
+$secondary-color: #5C6E7A;
+$third-color: #8D96B7;
+
+@import 'style';
+
+
 html {
     height: 100%;
     box-sizing: border-box;
@@ -21,8 +29,8 @@ body{
     min-height: 100%;
 }
 .jumbotron{
-    background-color: #5CB7E1;
-    color:  #5C6E7A;
+    background-color: $primary-color;
+    color:  $secondary-color;
 }
 .card-img-bottom{
     width: auto; 
@@ -35,19 +43,42 @@ body{
 }
 .card-title{
     text-align: center;
-    color: #8D96B7;
+    color: $third-color;
 }
 
 .new{
     padding: 20px;
     margin-left: 20px;
+
 }
+/* unvisited link */
+a:link {
+    color:$secondary-color;
+}
+
+/* visited link */
+a:visited {
+    color: $third-color;
+}
+
+/* mouse over link */
+a:hover {
+    color:$primary-color;
+}
+
+/* selected link */
+a:active {
+    color: $secondary-color;
+}
+
+a:hover span { cursor: pointer }
 
 #dadjoke{
 padding: 20px;
 }
+
 .panel-default > .panel-heading-custom {
-    background: #5CB7E1;  
+    background: $primary-color;  
     color: #fff;
 }
 #funny{
@@ -58,7 +89,7 @@ padding: 20px;
     right: 0;
     bottom: 0;
     left: 0;
-    background-color:#5CB7E1;
+    background-color:$primary-color;
     text-align: center;
     margin-top: 5%;
       }
@@ -75,5 +106,3 @@ padding: 20px;
         color: rgb(253, 253, 253);
         padding: 5px;
     }
-
-
