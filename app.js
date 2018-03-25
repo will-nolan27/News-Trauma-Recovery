@@ -11,15 +11,11 @@
       firebase.initializeApp(config);
       var searchTerm = []
       var fireBaseArray = ["dog", "cat", "rainbow", "apples", "color", "duck", "doctor", "baseball", "basketball", "music", "garden", "bug", "facebook", "space", "school", "kitten", "windows", "tech", "baby", "pun", "life"];
+      var randNum = []
       var database = firebase.database();
-      // var randNum = []
-      // database.ref().set({
-      //   Array: fireBaseArray
-      // });
-      // Digging into the array on firebase
-      // database.ref().on("value", function(snapshot) {
-      // console.log(snapshot.val().Array[0]);
-      // });
+      database.ref().set({
+          Array: fireBaseArray
+        });
       //Giphy API Function
       function searchGiphy() {
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dWrzYW0BDnzwozrf1PSoC64gqeYLPSby&limit=1";
@@ -28,8 +24,7 @@
           method: "GET"
         }).then(function (response) {
           var results = response.data;
-          console.log("GIPHY URL BELOW");
-          console.log(results[0].images.fixed_height.url);
+          console.log(results);
           $("#gifs").attr("src", results[0].images.fixed_height.url);
         });
       }
@@ -40,9 +35,8 @@
           url: queryURL,
           method: "GET"
         }).then(function (response) {
-          // console.log(response);
+          console.log(response);
           var memeImg = (response.result[0].instanceImageUrl);
-          console.log("MEME IMAGE BELOW");
           console.log(memeImg);
           $("#memes").attr("src", memeImg);
         });
@@ -60,66 +54,70 @@
           },
           // data: {term: searchTerm}
         }).then(data => {
-          console.log("DAD JOKE ID BELOW");
           console.log((data.results[0]).id);
           var img = (data.results[0]).id;
           $("#dadjoke").attr("src", ("https://icanhazdadjoke.com/j/" + img + ".png"));
         });
       }
       //Searchable Guardian API
-      function buildCNNurl(searchTerm) {
+      function buildCNNurl() {
         var CNNqueryURL = "https://content.guardianapis.com/search?q=" + searchTerm + "&api-key=049cc8da-ac2b-47db-985c-0fd76b832d2f";
         return CNNqueryURL;
       }
       function generateCNN() {
-        // var searchTerm = $("#trainName").val().trim();
-        var url = buildCNNurl(searchTerm);
+        var url = buildCNNurl();
         $.ajax({
           url: url,
           method: "GET"
         }).then(function (response) {
-          console.log("GUARDIAN URL BELOW");
-          console.log(response.response.results[0].webUrl);
-          console.log("-------------------------------------------------");
+          console.log(response);
           $("#newsDrop").text(response.response.results[0].webUrl);
           $("#newsDrop").on("click", function () {
             $("#newsDrop").attr("href", response.response.results[0].webUrl);
           })
         });
       }
-      database.ref().on("value", function(snapshot) {
       function myFunction() {
+        $("#trainName").val("");
+        database.ref().set({
+           Array: fireBaseArray
+          });
+        database.ref().on("value", function(snapshot) {
         var x = Math.floor((Math.random() * snapshot.val().Array.length) + 0);
         console.log(x);
-        // (snapshot.val().Array[x]);
+        //(snapshot.val().Array[x]);
         searchTerm = (snapshot.val().Array[x]);
         console.log(searchTerm);
+        console.log(snapshot.val().Array);
+
+        }); 
         searchGiphy();
         searchMeme();
         searchDad();
-        generateCNN()
-        searchTerm = []
+        generateCNN(); 
+       
       };
-      $("#random").on("click", myFunction)
+       
+      $("#random").on("click", function (event) {
+        event.preventDefault();
+        myFunction();
+      });
+
       $("#update").on("click", function (event) {
         event.preventDefault();
         var gif = $("#trainName").val().trim();
-        // if (gif == "") {
-        //   alert("nothing");
-        // } else {
-          searchTerm = gif;
-          fireBaseArray.push(searchTerm);
-          database.ref().set({
-            Array: fireBaseArray
-          })
-          // console.log(snapshot.val().Array);
-          console.log("USER INPUT");
-          console.log(searchTerm);
-          // $("#trainName").val("");
+        if (gif === "") {
+            $('#\\#myModal').modal('show');  
+        } else {
+         searchTerm = gif;
+         fireBaseArray.push(gif);
+          console.log(fireBaseArray);
+          console.log(gif);
+          $("#trainName").val("");
           searchGiphy();
           searchMeme();
           searchDad();
-          generateCNN();
-        // }
+          generateCNN();     
+        }
       });
-      });
+      

@@ -8,8 +8,7 @@ $third-color: #8D96B7;
 
 html {
     height: 100%;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;  
   }
   
   *,
@@ -50,6 +49,13 @@ body{
     padding: 20px;
     margin-left: 20px;
 
+}
+
+input.ng-invalid {
+    background-color: $primary-color;
+}
+input.ng-valid {
+    background-color: rgb(198, 242, 248);
 }
 /* unvisited link */
 a:link {
