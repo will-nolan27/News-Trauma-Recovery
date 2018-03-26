@@ -10,12 +10,10 @@
       };
       firebase.initializeApp(config);
       var searchTerm = []
-      var fireBaseArray = ["dog", "cat", "rainbow", "apples", "color", "duck", "doctor", "baseball", "basketball", "music", "garden", "bug", "facebook", "space", "school", "kitten", "windows", "tech", "baby", "pun", "life"];
+      var fireBaseArray = ["dog", "cat", "rainbow", "apples", "color", "duck", "doctor", "baseball", "football", "music", "garden", "bug", "facebook", "space", "school", "kitten", "windows", "tech", "baby", "pun", "life"];
       var randNum = []
       var database = firebase.database();
-      database.ref().set({
-          Array: fireBaseArray
-        });
+      
       //Giphy API Function
       function searchGiphy() {
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dWrzYW0BDnzwozrf1PSoC64gqeYLPSby&limit=1";
@@ -78,46 +76,47 @@
         });
       }
       function myFunction() {
-        $("#trainName").val("");
-        database.ref().set({
-           Array: fireBaseArray
-          });
-        database.ref().on("value", function(snapshot) {
+        database.ref().once("value", function(snapshot) {
         var x = Math.floor((Math.random() * snapshot.val().Array.length) + 0);
         console.log(x);
         //(snapshot.val().Array[x]);
         searchTerm = (snapshot.val().Array[x]);
         console.log(searchTerm);
         console.log(snapshot.val().Array);
-
-        }); 
-        searchGiphy();
-        searchMeme();
-        searchDad();
-        generateCNN(); 
+        });  
        
       };
        
       $("#random").on("click", function (event) {
         event.preventDefault();
+        $("#trainName").val("");
+        database.ref().set({
+           Array: fireBaseArray
+          });
         myFunction();
+        searchGiphy();
+        searchMeme();
+        searchDad();
+        generateCNN();
+        searchTerm = []
       });
-
       $("#update").on("click", function (event) {
         event.preventDefault();
         var gif = $("#trainName").val().trim();
         if (gif === "") {
-            $('#\\#myModal').modal('show');  
+            $('#\\#myModal').modal('show');       
         } else {
          searchTerm = gif;
          fireBaseArray.push(gif);
           console.log(fireBaseArray);
           console.log(gif);
-          $("#trainName").val("");
           searchGiphy();
           searchMeme();
           searchDad();
           generateCNN();     
+          $("#trainName").val("");
         }
       });
+      
+      
       
