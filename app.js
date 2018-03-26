@@ -52,9 +52,15 @@
           },
           // data: {term: searchTerm}
         }).then(data => {
-          console.log((data.results[0]).id);
-          var img = (data.results[0]).id;
-          $("#dadjoke").attr("src", ("https://icanhazdadjoke.com/j/" + img + ".png"));
+            if (data.results.length === 0) {
+        
+                $("#dadjoke").attr("src", ("https://icanhazdadjoke.com/j/xHQucUvszd.png"));
+              } else {
+                 var img = (data.results[0]).id;
+                 console.log(img);
+              $("#dadjoke").attr("src", ("https://icanhazdadjoke.com/j/" + img + ".png"));
+              }
+
         });
       }
       //Searchable Guardian API

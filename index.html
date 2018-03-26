@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,45 +10,44 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/rawline" type="text/css" />
-    
+
     <title>Enlighten Up</title>
 </head>
+
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1 class="text-center">Enlighten up!</h1>
-            <h3 class="text-center">A current news source that also provides relevant comic relief.</h3>
+            <h2 class="text-center">Enlighten up!</h2>
+            <h4 class="text-center">A current news source that also provides relevant comic relief.</h4>
         </div>
     </div>
     <div class="row">
-        <div class="col-lr-12">
+        <div class="col-lg-12" id="request">
             <div id="tableContainer" class="container">
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-custom">
                         <h3 class="panel-title">Request</h3>
                     </div>
                     <div class="panel-body">
-                            <div class="modal fade" id="#myModal">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                                  
-                                          </button>
-                                  
-                                        </div>
-                                        <div class="modal-body">
-                                          <p>Please enter a search term, or hit "Suprise me." </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                   
-                                        </div>
-                                      </div>
-                                      <!-- /.modal-content -->
+                        <div class="modal fade" id="#myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                    <!-- /.modal-dialog -->
-                                  </div>
+                                    <div class="modal-body">
+                                        <p>Please enter a search term, or hit "Suprise me." </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
                         <form>
                             <div class="form-group">
                                 <label for="Name"></label>
@@ -61,21 +61,22 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lr-12">
+        <div class="col-lg-12" id="reality">
             <div id="tableContainer" class="container">
                 <div class="panel panel-default">
-                    <div class="panel-heading panel-heading-custom">
+                    <div class="panel-heading panel-heading-custom" id="realityhed">
                         <h3 class="panel-title">Reality</h3>
                     </div>
-                    <div class="new"><a class="panel-body" id="newsDrop" target="_blank"></a></div>
+                    <div class="new">
+                        <a class="panel-body" id="newsDrop" target="_blank"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-lr-12">
+        <div class="col-lr-12" id="relief">
             <div id="tableContainer" class="container">
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-custom">
@@ -88,10 +89,13 @@
                                     <div class="col-lg-4">
                                         <div class="card" style="width: 26rem;">
                                             <div class="card-body">
-                                                <p class="card-title"><b>MEMES</b></p>
+                                                <p class="card-title">
+                                                    <b>MEMES</b>
+                                                </p>
                                                 <div class="card-img-bottom" id="memes-display">
-                                                <img class="card-img-bottom" id="memes" src="https://camo.githubusercontent.com/b8b6fb20143f25818214397a4f864f3b74f1602c/68747470733a2f2f6d656d6567656e2e6c696e6b2f62757a7a2f6d656d65732f6d656d65735f657665727977686572652e6a70673f77617465726d61726b3d6e6f6e65"
-                                                    alt="Card image cap" style="width: 26rem;"></div>
+                                                    <img class="card-img-bottom" id="memes" 
+                                                        style="width: 26rem;">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -100,31 +104,38 @@
                                     <div class="col-lg-4">
                                         <div class="card" style="width: 26rem;">
                                             <div class="card-body">
-                                                <p class="card-title"><b>DAD JOKES</b></p>
+                                                <p class="card-title">
+                                                    <b>DAD JOKES</b>
+                                                </p>
                                                 <div class="card-img-bottom" id="dadjoke-display">
-                                                <img class="card-img-bottom" id="dadjoke" src="https://uploads-cdn.thgblogs.com/wp-content/uploads/sites/463/2015/08/26035300/01-dunphy.jpg"
-                                                    alt="Card image cap" style="width: 26rem;"></div>
+                                                    <img class="card-img-bottom" id="dadjoke" 
+                                                        style="width: 26rem;">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                            </ul>
-                            <ul>
-                                <div class="col-lg-4">
-                                    <div class="card" style="width: 26rem;">
-                                        <div class="card-body">
-                                            <p class="card-title"><b>GIFS</b></p>
-                                            <div class="card-img-bottom" id="gif-display" style="width: 26rem;"><img class="card-img-bottom" id="gifs" src="https://i.imgur.com/BIT4TTM.gif" 
-                                                alt="Card image cap" style="width: 26rem;"></div>
-                                        </div>
-                                    </div>
                                 </ul>
+                                <ul>
+                                    <div class="col-lg-4">
+                                        <div class="card" style="width: 26rem;">
+                                            <div class="card-body">
+                                                <p class="card-title">
+                                                    <b>GIFS</b>
+                                                </p>
+                                                <div class="card-img-bottom" id="gif-display" style="width: 26rem;">
+                                                    <img class="card-img-bottom" id="gifs" 
+                                                        style="width: 26rem;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <div class="footer">
         <div class="imageholder">
@@ -136,4 +147,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
