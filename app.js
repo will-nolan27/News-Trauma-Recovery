@@ -31,7 +31,7 @@ function searchGiphy() {
 }
 // Meme API Function
 function searchMeme() {
-    var queryURL = "https://cors-anywhere.herokuapp.com/http://version1.api.memegenerator.net//Instances_Search?q=" + searchTerm + "&pageIndex=1&pageSize=1&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e";
+    var queryURL = "http://version1.api.memegenerator.net//Instances_Search?q=" + searchTerm + "&pageIndex=1&pageSize=1&apiKey=b939f19b-e825-43d7-a423-a52dd5a7b20e";
     $.ajax({
         url: queryURL,
         method: "GET"
