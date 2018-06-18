@@ -1,4 +1,4 @@
-# News-Trauma-Recovery
+# API-powered Web App
 
 ENLIGHTEN UP: 
 
